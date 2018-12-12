@@ -2,7 +2,7 @@
 
 # Installation
 
-This script is made in ```Python 3```.
+This script is made using ```Python 3```.
 
 Have the following dependencies:
 ```
