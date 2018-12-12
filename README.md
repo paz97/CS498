@@ -1,4 +1,6 @@
 # CS498
+This will start a server that can accept POST/GET requests and send to a mongodb.
+
 
 # Installation
 
