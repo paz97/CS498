@@ -1,6 +1,6 @@
 # CS498
 
-#Installation
+# Installation
 
 This script is made in ```Python 3```.
 
@@ -13,7 +13,7 @@ pymongo
 Install and run mongodb:
 https://docs.mongodb.com/v3.2/administration/install-community/
 
-#Running
+# Running
 Run the ```server.py``` script using:
 ```
 $ export FLASK_APP=server.py
