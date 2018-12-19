@@ -1,4 +1,4 @@
-# CS498
+# CS498 Backend System
 This will start a server that can accept POST/GET requests and send to a mongodb.
 
 
