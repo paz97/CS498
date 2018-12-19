@@ -10,7 +10,10 @@ Have the following dependencies:
 ```
 flask
 pymongo
+requests
 ```
+
+This time you have to install everything one by one.
 
 Install and run mongodb:
 https://docs.mongodb.com/v3.2/administration/install-community/
@@ -30,3 +33,5 @@ $ export FLASK_APP=server.py
 $ flask run --host=0.0.0.0
 ```
 
+More detailed project planning is here:
+https://docs.google.com/document/d/1tUmpBFls4SVh8OcdbXA0GqBk8xb7Fkw9oNzxno-9F2U/edit
