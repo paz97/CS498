@@ -27,9 +27,13 @@ def get_update():
 def post_update():
     content = request.json
     posts = db.posts
+
+    #TODO: Add check fields
     post_data = {
-        'device':content['device_id'],
-        'content':content['seat_avail']
+        'sensor_id':content['sensor_id'],
+        'seats_taken':content['seats_taken'],
+        'seats_empty':content['seats_empty'],
+        'seats_total':content['seats_total']
     }
     result = posts.insert_one(post_data)
     return "Success"
