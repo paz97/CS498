@@ -3,9 +3,12 @@ from flask import request
 import requests
 import pymongo
 from pymongo import MongoClient
+from pprint import pprint
+from random import randint
 
-
-client = MongoClient()
+ss='mongodb+srv://dbUser:pwd@ccs498-xdjtt.mongodb.net/test?retryWrites=true'
+client = MongoClient(ss)
+db=client.test
 app = Flask(__name__)
 
 #This is a test endpoint
@@ -20,15 +23,13 @@ def get_update():
     '''
     return 'GET SUCCESS'
 
-
-@app.route('/yolo', methods=['GET', 'POST'])
-def add_message():
-    db = client.testDB
+@app.route('/updates', methods=['POST'])
+def post_update():
     content = request.json
-    print (content['yo'])
     posts = db.posts
     post_data = {
-        'content':content['yo']
+        'device':content['device_id'],
+        'content':content['seat_avail']
     }
     result = posts.insert_one(post_data)
-    return "hello"
+    return "Success"

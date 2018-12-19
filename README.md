@@ -27,7 +27,7 @@ $ flask run
 
 This will make the server accessible from only your computer.
 
-To make an externally accessible server, run:
+To make it externally accessible, run flask with host params::
 ```
 $ export FLASK_APP=server.py
 $ flask run --host=0.0.0.0
