@@ -15,7 +15,10 @@ requests
 
 This time you have to install everything one by one.
 
-Install and run mongodb:
+
+We are using mongodb atlas testserver, so currently there is no reason you have to set up mongodb manually.
+
+But if running db locally is required, you can install and run mongodb:
 https://docs.mongodb.com/v3.2/administration/install-community/
 
 # Running

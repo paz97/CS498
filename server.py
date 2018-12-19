@@ -1,27 +1,27 @@
 from flask import Flask
 from flask import request
-import requests
-import pymongo
 from pymongo import MongoClient
 from pprint import pprint
 from random import randint
+import requests
+import pymongo
 
 ss='mongodb+srv://dbUser:pwd@ccs498-xdjtt.mongodb.net/test?retryWrites=true'
 client = MongoClient(ss)
 db=client.test
 app = Flask(__name__)
 
-#This is a test endpoint
+#This is a test endpoint.
 @app.route('/', methods=[ 'POST'])
 def hello_world():
       return 'POST SUCEESS'
 
 @app.route('/updates',methods=['GET'])
 def get_update():
-    '''
-    Should be changed to get new updates from the database
-    '''
-    return 'GET SUCCESS'
+    content = request.json
+    sensorId = content['sensor_id']
+    ret = db.find_one({'_id': sensorId})
+    return jsonify(seats_empty=ret['seats_empty'])
 
 @app.route('/updates', methods=['POST'])
 def post_update():
@@ -30,10 +30,10 @@ def post_update():
 
     #TODO: Add check fields
     post_data = {
-        'sensor_id':content['sensor_id'],
+        '_id':content['sensor_id'],
         'seats_taken':content['seats_taken'],
         'seats_empty':content['seats_empty'],
         'seats_total':content['seats_total']
     }
-    result = posts.insert_one(post_data)
+    result = posts.update({"_id":content['sensor_id']}, post_data, upsert=True)
     return "Success"
