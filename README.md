@@ -33,5 +33,5 @@ $ export FLASK_APP=server.py
 $ flask run --host=0.0.0.0
 ```
 
-More detailed project planning is here:
+# More detailed project planning:
 https://docs.google.com/document/d/1tUmpBFls4SVh8OcdbXA0GqBk8xb7Fkw9oNzxno-9F2U/edit
