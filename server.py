@@ -1,10 +1,12 @@
 from flask import Flask
+from flask import jsonify
 from flask import request
 from pymongo import MongoClient
 from pprint import pprint
 from random import randint
 import requests
 import pymongo
+import sys
 
 ss='mongodb+srv://dbUser:pwd@ccs498-xdjtt.mongodb.net/test?retryWrites=true'
 client = MongoClient(ss)
@@ -18,17 +20,18 @@ def hello_world():
 
 @app.route('/updates',methods=['GET'])
 def get_update():
-    content = request.json
-    sensorId = content['sensor_id']
-    ret = db.find_one({'_id': sensorId})
+    sensor_id = int(request.args.get('sensor_id'))
+    ret = db.posts.find_one({'_id': sensor_id})
+    print(sensor_id, file=sys.stderr)
+    print(type(sensor_id), file=sys.stderr)
+    print(ret, file=sys.stderr)
     return jsonify(seats_empty=ret['seats_empty'])
 
 @app.route('/updates', methods=['POST'])
 def post_update():
-    content = request.json
+    content = request.get_json()
     posts = db.posts
 
-    #TODO: Add check fields
     post_data = {
         '_id':content['sensor_id'],
         'seats_taken':content['seats_taken'],
@@ -36,4 +39,5 @@ def post_update():
         'seats_total':content['seats_total']
     }
     result = posts.update({"_id":content['sensor_id']}, post_data, upsert=True)
+
     return "Success"
