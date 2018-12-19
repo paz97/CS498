@@ -8,11 +8,18 @@ from pymongo import MongoClient
 client = MongoClient()
 app = Flask(__name__)
 
+#This is a test endpoint
 @app.route('/', methods=[ 'POST'])
 def hello_world():
-    if flask.request.method == 'POST':
-      return 'POST'
-    return 'Hj'
+      return 'POST SUCEESS'
+
+@app.route('/updates',methods=['GET'])
+def get_update():
+    '''
+    Should be changed to get new updates from the database
+    '''
+    return 'GET SUCCESS'
+
 
 @app.route('/yolo', methods=['GET', 'POST'])
 def add_message():
