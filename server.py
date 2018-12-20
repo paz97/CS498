@@ -10,7 +10,7 @@ import sys
 
 ss='mongodb+srv://dbUser:pwd@ccs498-xdjtt.mongodb.net/test?retryWrites=true'
 client = MongoClient(ss)
-db=client.test
+db = client.test
 app = Flask(__name__)
 
 #This is a test endpoint.
