@@ -21,6 +21,11 @@ We are using mongodb atlas testserver, so currently there is no reason you have 
 But if running db locally is required, you can install and run mongodb:
 https://docs.mongodb.com/v3.2/administration/install-community/
 
+
+# Sample Client
+
+We now have provided the sameple python client for reference. See related directory for details.
+
 # Running
 Run the ```server.py``` script using:
 ```
